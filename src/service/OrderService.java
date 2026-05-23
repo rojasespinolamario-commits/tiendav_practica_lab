@@ -29,4 +29,13 @@ public class OrderService {
     public void addObserver (OrderObserver observer) {
         observers.add(observer);
     }
+
+    public double calculateFinalTotal(Cart cart) {
+        double total = cart.calculateTotal();
+
+        if (discountStrategy != null) {
+            total = discountStrategy.applyDiscount(total);
+        }
+        return total;
+    }
 }
