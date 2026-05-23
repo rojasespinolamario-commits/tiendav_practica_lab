@@ -50,4 +50,13 @@ public class OrderService {
             observer.update(message);
         }
     }
+
+    public void completeOrder(Cart cart) {
+        double total = calculateFinalTotal(cart);
+        System.out.println("Compra confirmada por S/ " + total);
+
+        processPayment(total);
+
+        notifyObservers("Compra realizada");
+    }
 }
