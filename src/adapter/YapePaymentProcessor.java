@@ -1,6 +1,6 @@
 package adapter;
 
-public class YapePaymentProcessor {
+public class YapePaymentProcessor implements PaymentProcessor {
 
     @Override
     public void pay (double amount) {
