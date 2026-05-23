@@ -44,4 +44,10 @@ public class OrderService {
             paymentProcessor.pay(total);
         }
     }
+
+    public void notifyObservers(String message) {
+        for (OrderObserver observer : observers) {
+            observer.update(message);
+        }
+    }
 }
