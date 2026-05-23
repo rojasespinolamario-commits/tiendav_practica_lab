@@ -1,0 +1,32 @@
+package service;
+import adapter.PaymentProcessor;
+import model.Cart;
+import observer.OrderObserver;
+import strategy.DiscountStrategy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OrderService {
+
+    private DiscountStrategy discountStrategy;
+    private PaymentProcessor paymentProcessor;
+
+    private List<OrderObserver> observers;
+
+    public OrderService() {
+        observers = new ArrayList<>();
+    }
+
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+
+    public void setPaymentProcessor(PaymentProcessor paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
+    }
+
+    public void addObserver (OrderObserver observer) {
+        observers.add(observer);
+    }
+}
