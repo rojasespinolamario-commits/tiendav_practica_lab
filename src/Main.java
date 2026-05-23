@@ -34,12 +34,6 @@ public class Main {
 
         orderService.addObserver(new AdminNotificationObserver());
 
-        double finalTotal = orderService.calculateFinalTotal(cart);
-
-        System.out.println("Compra confirmada por S/ " + finalTotal);
-
-        orderService.processPayment(finalTotal);
-
-        orderService.notifyObservers("Compra realizada");
+        orderService.completeOrder(cart);
     }
 }
