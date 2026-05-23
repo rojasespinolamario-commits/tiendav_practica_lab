@@ -38,4 +38,10 @@ public class OrderService {
         }
         return total;
     }
+
+    public void processPayment(double total) {
+        if (paymentProcessor != null) {
+            paymentProcessor.pay(total);
+        }
+    }
 }
