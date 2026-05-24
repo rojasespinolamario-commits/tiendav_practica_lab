@@ -52,11 +52,18 @@ public class OrderService {
     }
 
     public void completeOrder(Cart cart) {
+        double subtotal = cart.calculateTotal();
         double total = calculateFinalTotal(cart);
-        System.out.println("Compra confirmada por S/ " + total);
+        double descuento = subtotal - total;
 
+        System.out.println("\nSubtotal: S/ " + subtotal);
+
+        System.out.println("Descuento aplicado: S/ " + descuento);
+
+        System.out.println("Total a pagar: S/ " + total);
         processPayment(total);
 
+        System.out.println("Compra confirmada por S/ " + total);
         notifyObservers("Compra realizada");
     }
 }
